@@ -18,6 +18,7 @@ public class ApiClient {
 
         if(retrofit == null)
         {
+
             retrofit = new Retrofit.Builder()
                     .baseUrl("https://api.covid19india.org/")
                     .client(builder.build())

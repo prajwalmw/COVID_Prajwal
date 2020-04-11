@@ -11,11 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardPreventCornerOverlap="true"
         android:elevation="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp">
 
 
         <LinearLayout
@@ -23,24 +26,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:id="@+id/StateName"
-                android:layout_width="0dp"
-                android:layout_weight="1.2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Maharashtra"
+                android:hint="state"
                 android:textStyle="bold"
                 android:padding="10dp"
                 android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/DateName"
-                android:layout_width="0dp"
-                android:layout_weight="0.8"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="10-April-2020"
+                android:hint="10-Jan-20"
+                android:paddingEnd="20dp"
+                android:gravity="end"
+                android:lines="1"
                 android:padding="10dp"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -61,7 +65,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="117"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
@@ -71,7 +75,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="38"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
@@ -81,7 +85,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="10"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
