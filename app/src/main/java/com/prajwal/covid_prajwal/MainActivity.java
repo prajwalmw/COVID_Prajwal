@@ -1,7 +1,9 @@
 package com.prajwal.covid_prajwal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -25,17 +27,25 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     TextView state, date, confirmed, recovered, deceased;
+    RecyclerView recyclerView;
+    RecyclerAdapter recyclerAdapter;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        context = MainActivity.this;
         state = findViewById(R.id.StateName);
         date = findViewById(R.id.DateName);
         confirmed = findViewById(R.id.Confirmed);
         recovered = findViewById(R.id.Recovered);
         deceased = findViewById(R.id.Deceased);
+        recyclerView = findViewById(R.id.recyclerview);
+
+        recyclerAdapter = new RecyclerAdapter(context);
+        recyclerView.setAdapter(recyclerAdapter);
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yy");
