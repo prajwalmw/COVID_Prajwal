@@ -1,5 +1,7 @@
 package com.prajwal.covid_prajwal.pojo_model;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -444,5 +446,60 @@ public class StatesDaily {
 
     public void setWb(String wb) {
         this.wb = wb;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+       // return this.date == ((StatesDaily)obj).date;
+        String comapareVal = ((StatesDaily)obj).date;
+        String compareStatus = ((StatesDaily)obj).status;
+
+        return  this.date.equalsIgnoreCase(comapareVal) && this.status.equalsIgnoreCase(compareStatus);
+    }
+
+    @Override
+    public String toString() {
+        return "StatesDaily{" +
+                "an='" + an + '\'' +
+                ", ap='" + ap + '\'' +
+                ", ar='" + ar + '\'' +
+                ", as='" + as + '\'' +
+                ", br='" + br + '\'' +
+                ", ch='" + ch + '\'' +
+                ", ct='" + ct + '\'' +
+                ", date='" + date + '\'' +
+                ", dd='" + dd + '\'' +
+                ", dl='" + dl + '\'' +
+                ", dn='" + dn + '\'' +
+                ", ga='" + ga + '\'' +
+                ", gj='" + gj + '\'' +
+                ", hp='" + hp + '\'' +
+                ", hr='" + hr + '\'' +
+                ", jh='" + jh + '\'' +
+                ", jk='" + jk + '\'' +
+                ", ka='" + ka + '\'' +
+                ", kl='" + kl + '\'' +
+                ", la='" + la + '\'' +
+                ", ld='" + ld + '\'' +
+                ", mh='" + mh + '\'' +
+                ", ml='" + ml + '\'' +
+                ", mn='" + mn + '\'' +
+                ", mp='" + mp + '\'' +
+                ", mz='" + mz + '\'' +
+                ", nl='" + nl + '\'' +
+                ", or='" + or + '\'' +
+                ", pb='" + pb + '\'' +
+                ", py='" + py + '\'' +
+                ", rj='" + rj + '\'' +
+                ", sk='" + sk + '\'' +
+                ", status='" + status + '\'' +
+                ", tg='" + tg + '\'' +
+                ", tn='" + tn + '\'' +
+                ", tr='" + tr + '\'' +
+                ", tt='" + tt + '\'' +
+                ", up='" + up + '\'' +
+                ", ut='" + ut + '\'' +
+                ", wb='" + wb + '\'' +
+                '}';
     }
 }

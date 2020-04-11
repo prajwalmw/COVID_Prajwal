@@ -3,6 +3,7 @@ package com.prajwal.covid_prajwal;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +13,7 @@ import com.prajwal.covid_prajwal.pojo_model.StatesDaily;
 import com.prajwal.covid_prajwal.pojo_model.StatesDaily_List;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,14 +41,28 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<StatesDaily_List> call, Response<StatesDaily_List> response) {
                 if(response.isSuccessful())
                 {
+                    StatesDaily st = new StatesDaily();
+                    st.setDate("14-Mar-20");
+                    st.setStatus("Recovered");
+//                    Log.e("PRAJWAL","EQUALL: "+response.body().getStatesDaily().contains(st));
+                    List<StatesDaily> listOfState = response.body().getStatesDaily();
+                    int indexOfObj = listOfState.indexOf(st);
+                    if(indexOfObj >= 0){
+                       StatesDaily actualObj = listOfState.get(indexOfObj);
+                        Log.e("PRAJWAL","actualObj: "+actualObj);
+                        state.setText(actualObj.getMh());
+                    }
+/*
                     for (int i = 0; i < response.body().getStatesDaily().size(); i++) {
                         String date_string = response.body().getStatesDaily().get(i).getDate();
+//                        String confirm_string = response.body().getStatesDaily().get(i).;
                         date.setText(date_string);
                         confirmed.setText(response.body().getStatesDaily().get(i).getMh() + "\n Confirm");
                         recovered.setText(response.body().getStatesDaily().get(i+1).getMh() + "\n Recover");
                         deceased.setText(response.body().getStatesDaily().get(i+2).getMh() + "\n Death");
                         state.setText("Maharashtra");
                     }
+*/
 
 
                 }

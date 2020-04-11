@@ -1,5 +1,7 @@
 package com.prajwal.covid_prajwal.pojo_model;
 
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -19,4 +21,6 @@ public class StatesDaily_List {
     public void setStatesDaily(List<StatesDaily> statesDaily) {
         this.statesDaily = statesDaily;
     }
+
+
 }
