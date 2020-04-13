@@ -10,6 +10,7 @@ import java.util.Collections;
 
 public class StatesDaily {
 
+
     @SerializedName("an")
     @Expose
     private String an;
@@ -454,25 +455,24 @@ public class StatesDaily {
     public String All_States(int no)
     {
         String[] strings = new String[]
-                {getAr(), getAn(), getAp(), getAs(), getBr(), getCh(),
-                getCt(), getDd(), getDl(), getDd(), getDn(), getGa(), getGj(), getHp(),
-                getHr(), getJh(), getJk(), getKa(), getKl(), getLa(), getLd(), getMh(),
-                getMl(), getMn(), getMp(), getMz(), getNl(), getOr(), getPb(), getPy(),
-                getRj(), getSk(), getTg(), getTn(), getTr(), getTt(), getUp(), getUt(),
-                getWb()};
-
-        Arrays.sort(strings);
+                {getAn(), getAp(), getAr(), getAs(), getBr(), getCh(),
+                        getCt(), getDd(), getDl(), getDn(), getGa(), getGj(), getHp(),
+                        getHr(), getJh(), getJk(), getKa(), getKl(), getLa(), getLd(), getMh(),
+                        getMl(), getMn(), getMp(), getMz(), getNl(), getOr(), getPb(), getPy(),
+                        getRj(), getSk(), getTg(), getTn(), getTr(), getUp(), getUt(),
+                        getWb()};
+//        Arrays.sort(strings);
         return strings[no];
     }
 
     public int All_States_Length()
     {
         String[] strings = new String[]
-                {getAr(), getAn(), getAp(), getAs(), getBr(), getCh(),
-                        getCt(), getDd(), getDl(), getDd(), getDn(), getGa(), getGj(), getHp(),
+                {getAn(), getAp(), getAr(), getAs(), getBr(), getCh(),
+                        getCt(), getDd(), getDl(), getDn(), getGa(), getGj(), getHp(),
                         getHr(), getJh(), getJk(), getKa(), getKl(), getLa(), getLd(), getMh(),
                         getMl(), getMn(), getMp(), getMz(), getNl(), getOr(), getPb(), getPy(),
-                        getRj(), getSk(), getTg(), getTn(), getTr(), getTt(), getUp(), getUt(),
+                        getRj(), getSk(), getTg(), getTn(), getTr(), getUp(), getUt(),
                         getWb()};
 
         return strings.length;

@@ -24,11 +24,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:weightSum="2"
                 android:layout_marginTop="5dp">
 
                 <TextView
                     android:id="@+id/StateName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:hint="State name"
                     android:textStyle="bold"
@@ -37,9 +39,10 @@
 
                 <TextView
                     android:id="@+id/DateName"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="Date"
+                    android:hint="00-Apr-20"
                     android:paddingEnd="20dp"
                     android:gravity="end"
                     android:lines="1"
@@ -65,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:hint="confirm"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
@@ -76,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:hint="recover"
                     android:textColor="@android:color/holo_green_light"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
@@ -87,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:hint="death"
                     android:textColor="#80000000"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
 

@@ -51,7 +51,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         array_list = new ArrayList<Card_DataModel>();
 
-       array_statenames = new String[]{"Maharashtra", "Gujarat", "Karnataka"};
+       array_statenames = new String[]
+               {"Andaman & Nicobar Island", "Andhra Pradesh", "Arunachal Pradesh",
+                       "Assam", "Bihar", "Chandigarh", "Chattisgarh", "Diu & Daman",
+                       "Delhi", "Dadra & Nagar Haveli", "Goa", "Gujarat", "Himachal Pradesh", "Haryana",
+               "Jharkhand", "Jammu & Kashmir", "Karnataka", "Kerala", "Ladakh" ,
+                       "Lakshadweep", "Maharashtra", "Meghalaya", "Manipur",
+                       "Madhya Pradesh", "Mizoram", "Nagaland", "Orissa", "Punjab", "Puducherry",
+               "Rajasthan", "Sikkim", "Telangana", "Tamil Nadu", "Tripura",
+                       "Uttar Pradesh", "Uttarakhand", "West Bengal"};
+
 
 
         recyclerView.setLayoutManager(
@@ -77,15 +86,15 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     StatesDaily statesDaily = new StatesDaily();
-                    statesDaily.setDate(today_date);
+                    statesDaily.setDate(yesterday_date);
                     statesDaily.setStatus("Confirmed");
 
                     StatesDaily statesDaily_1 = new StatesDaily();
-                    statesDaily_1.setDate(today_date);
+                    statesDaily_1.setDate(yesterday_date);
                     statesDaily_1.setStatus("Recovered");
 
                     StatesDaily statesDaily_2 = new StatesDaily();
-                    statesDaily_2.setDate(today_date);
+                    statesDaily_2.setDate(yesterday_date);
                     statesDaily_2.setStatus("Deceased");
 
                     int[] index_array = new int[]
@@ -97,82 +106,24 @@ public class MainActivity extends AppCompatActivity {
 
                     if(!Arrays.asList(index_array).contains(-1))
                     {
-
-                       /*array_list.add(
-                               new Card_DataModel(array_statenames[0],
-                                       response.body().getStatesDaily().get(index_array[0]).getDate(),
-                                       response.body().getStatesDaily().get(index_array[0]).getMh(),
-                                       response.body().getStatesDaily().get(index_array[1]).getMh(),
-                                       response.body().getStatesDaily().get(index_array[2]).getMh()));
-
-                       array_list.add(
-                               new Card_DataModel(array_statenames[1],
-                               response.body().getStatesDaily().get(index_array[0]).getDate(),
-                               response.body().getStatesDaily().get(index_array[0]).All_States(0),
-                               response.body().getStatesDaily().get(index_array[1]).getGj(),
-                               response.body().getStatesDaily().get(index_array[2]).getGj()));*/
-
-                       StatesDaily statesDaily_new = new StatesDaily();
-                        for (int i = 0; i < statesDaily.get; i++) {
-
+                        StatesDaily statesDaily_new = new StatesDaily();
+                        for (int i = 0; i < statesDaily_new.All_States_Length(); i++)
+                        {
+                            array_list.add(
+                                    new Card_DataModel(array_statenames[i],
+                                            response.body().getStatesDaily().get(index_array[0]).getDate(),
+                                            response.body().getStatesDaily().get(index_array[0]).All_States(i),
+                                            response.body().getStatesDaily().get(index_array[1]).All_States(i),
+                                            response.body().getStatesDaily().get(index_array[2]).All_States(i)));
                         }
-
-
 
                         recyclerAdapter = new RecyclerAdapter(context, array_list);
                         recyclerView.setAdapter(recyclerAdapter);
+
                     }
-
-
-
-
                 }
-/*
-                if(response.isSuccessful())
-                {
-                    StatesDaily st = new StatesDaily();
-                    st.setDate(today_date);
-                    st.setDate(yesterday_date);
-                    st.setStatus("Confirmed");
-
-                    List<StatesDaily> listOfState = response.body().getStatesDaily();
-                    int indexOfObj = listOfState.indexOf(st);
-                    if(indexOfObj >= 0){
-                       StatesDaily actualObj = listOfState.get(indexOfObj);
-                        Log.e("PRAJWAL","actualObj: "+actualObj);
-                        confirmed.setText(actualObj.getMh() + "\n Confirm");
-                        date.setText(actualObj.getDate());
-                        state.setText("Maharashtra");
-                    }
-
-                    StatesDaily st_1 = new StatesDaily();
-                    st_1.setDate(today_date);
-                    st_1.setDate(yesterday_date);
-                    st_1.setStatus("Recovered");
-
-
-                    List<StatesDaily> listOfState_1 = response.body().getStatesDaily();
-                    int indexOfObj_1 = listOfState_1.indexOf(st_1);
-                    if(indexOfObj_1 >= 0){
-                        StatesDaily actualObj_1 = listOfState_1.get(indexOfObj_1);
-                        recovered.setText(actualObj_1.getMh() + "\n Recovered");
-                    }
-
-                    StatesDaily st_2 = new StatesDaily();
-                    st_2.setDate(today_date);
-                    st_2.setDate(yesterday_date);
-                    st_2.setStatus("Deceased");
-
-                    List<StatesDaily> listOfState_2 = response.body().getStatesDaily();
-                    int indexOfObj_2 = listOfState_2.indexOf(st_2);
-                    if(indexOfObj_2 >= 0){
-                        StatesDaily actualObj_2 = listOfState_1.get(indexOfObj_2);
-                        deceased.setText(actualObj_2.getMh() + "\n Death");
-                    }
-
-                }
-*/
             }
+
 
             @Override
             public void onFailure(Call<StatesDaily_List> call, Throwable t) {
