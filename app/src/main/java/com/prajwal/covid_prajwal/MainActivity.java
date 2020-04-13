@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -86,26 +87,57 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     StatesDaily statesDaily = new StatesDaily();
-                    statesDaily.setDate(yesterday_date);
+                    statesDaily.setDate(today_date);
                     statesDaily.setStatus("Confirmed");
 
                     StatesDaily statesDaily_1 = new StatesDaily();
-                    statesDaily_1.setDate(yesterday_date);
+                    statesDaily_1.setDate(today_date);
                     statesDaily_1.setStatus("Recovered");
 
                     StatesDaily statesDaily_2 = new StatesDaily();
-                    statesDaily_2.setDate(yesterday_date);
+                    statesDaily_2.setDate(today_date);
                     statesDaily_2.setStatus("Deceased");
 
-                    int[] index_array = new int[]
+                    /*int[] index_array = new int[]
                             {response.body().getStatesDaily().indexOf(statesDaily),
                                     response.body().getStatesDaily().indexOf(statesDaily_1),
                                     response.body().getStatesDaily().indexOf(statesDaily_2)
-                            };
+                            };*/
 
-
-                    if(!Arrays.asList(index_array).contains(-1))
+int[] index_array;
+                    if(!TextUtils.isEmpty(statesDaily.getTt()) || !TextUtils.isEmpty(statesDaily_1.getTt()) ||
+                    !TextUtils.isEmpty(statesDaily_2.getTt()))
+                    //checking for null string values.
                     {
+                         index_array = new int[]
+                                {response.body().getStatesDaily().indexOf(statesDaily),
+                                        response.body().getStatesDaily().indexOf(statesDaily_1),
+                                        response.body().getStatesDaily().indexOf(statesDaily_2)
+                                };
+                    }
+                    else
+                    {
+                        StatesDaily statesDaily_a = new StatesDaily();
+                        statesDaily_a.setDate(yesterday_date);
+                        statesDaily_a.setStatus("Confirmed");
+
+                        StatesDaily statesDaily_b = new StatesDaily();
+                        statesDaily_b.setDate(yesterday_date);
+                        statesDaily_b.setStatus("Recovered");
+
+                        StatesDaily statesDaily_c = new StatesDaily();
+                        statesDaily_c.setDate(yesterday_date);
+                        statesDaily_c.setStatus("Deceased");
+
+                         index_array = new int[]
+                                {response.body().getStatesDaily().indexOf(statesDaily_a),
+                                        response.body().getStatesDaily().indexOf(statesDaily_b),
+                                        response.body().getStatesDaily().indexOf(statesDaily_c)
+                                };
+
+                    }
+
+
                         StatesDaily statesDaily_new = new StatesDaily();
                         for (int i = 0; i < statesDaily_new.All_States_Length(); i++)
                         {
@@ -120,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                         recyclerAdapter = new RecyclerAdapter(context, array_list);
                         recyclerView.setAdapter(recyclerAdapter);
 
-                    }
                 }
             }
 
