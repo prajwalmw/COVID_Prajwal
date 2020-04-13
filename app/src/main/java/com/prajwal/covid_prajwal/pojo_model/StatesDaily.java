@@ -5,6 +5,9 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class StatesDaily {
 
     @SerializedName("an")
@@ -446,6 +449,33 @@ public class StatesDaily {
 
     public void setWb(String wb) {
         this.wb = wb;
+    }
+
+    public String All_States(int no)
+    {
+        String[] strings = new String[]
+                {getAr(), getAn(), getAp(), getAs(), getBr(), getCh(),
+                getCt(), getDd(), getDl(), getDd(), getDn(), getGa(), getGj(), getHp(),
+                getHr(), getJh(), getJk(), getKa(), getKl(), getLa(), getLd(), getMh(),
+                getMl(), getMn(), getMp(), getMz(), getNl(), getOr(), getPb(), getPy(),
+                getRj(), getSk(), getTg(), getTn(), getTr(), getTt(), getUp(), getUt(),
+                getWb()};
+
+        Arrays.sort(strings);
+        return strings[no];
+    }
+
+    public int All_States_Length()
+    {
+        String[] strings = new String[]
+                {getAr(), getAn(), getAp(), getAs(), getBr(), getCh(),
+                        getCt(), getDd(), getDl(), getDd(), getDn(), getGa(), getGj(), getHp(),
+                        getHr(), getJh(), getJk(), getKa(), getKl(), getLa(), getLd(), getMh(),
+                        getMl(), getMn(), getMp(), getMz(), getNl(), getOr(), getPb(), getPy(),
+                        getRj(), getSk(), getTg(), getTn(), getTr(), getTt(), getUp(), getUt(),
+                        getWb()};
+
+        return strings.length;
     }
 
     @Override

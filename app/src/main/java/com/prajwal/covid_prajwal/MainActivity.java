@@ -1,6 +1,7 @@
 package com.prajwal.covid_prajwal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.util.Function;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,18 +98,25 @@ public class MainActivity extends AppCompatActivity {
                     if(!Arrays.asList(index_array).contains(-1))
                     {
 
-                       array_list.add(
+                       /*array_list.add(
                                new Card_DataModel(array_statenames[0],
                                        response.body().getStatesDaily().get(index_array[0]).getDate(),
                                        response.body().getStatesDaily().get(index_array[0]).getMh(),
                                        response.body().getStatesDaily().get(index_array[1]).getMh(),
                                        response.body().getStatesDaily().get(index_array[2]).getMh()));
 
-                       array_list.add( new Card_DataModel(array_statenames[1],
+                       array_list.add(
+                               new Card_DataModel(array_statenames[1],
                                response.body().getStatesDaily().get(index_array[0]).getDate(),
-                               response.body().getStatesDaily().get(index_array[0]).getGj(),
+                               response.body().getStatesDaily().get(index_array[0]).All_States(0),
                                response.body().getStatesDaily().get(index_array[1]).getGj(),
-                               response.body().getStatesDaily().get(index_array[2]).getGj()));
+                               response.body().getStatesDaily().get(index_array[2]).getGj()));*/
+
+                       StatesDaily statesDaily_new = new StatesDaily();
+                        for (int i = 0; i < statesDaily.get; i++) {
+
+                        }
+
 
 
                         recyclerAdapter = new RecyclerAdapter(context, array_list);
