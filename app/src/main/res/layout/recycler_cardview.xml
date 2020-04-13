@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/recycle_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -28,7 +30,7 @@
                     android:id="@+id/StateName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="State"
+                    android:hint="State name"
                     android:textStyle="bold"
                     android:padding="10dp"
                     android:textSize="17sp"/>
@@ -37,7 +39,7 @@
                     android:id="@+id/DateName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="00-Jan-00"
+                    android:hint="Date"
                     android:paddingEnd="20dp"
                     android:gravity="end"
                     android:lines="1"
@@ -60,7 +62,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="0"
+                    android:hint="confirm"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
@@ -70,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="0"
+                    android:hint="recover"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
@@ -80,7 +82,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="0"
+                    android:hint="death"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:gravity="center"/>

@@ -1,11 +1,13 @@
 package com.prajwal.covid_prajwal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +18,7 @@ import com.prajwal.covid_prajwal.pojo_model.StatesDaily_List;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
     Context context;
+    ArrayList<Card_DataModel> array_list, recovered_array, deceased_array;
+    String[] array_statenames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +48,14 @@ public class MainActivity extends AppCompatActivity {
         recovered = findViewById(R.id.Recovered);
         deceased = findViewById(R.id.Deceased);
         recyclerView = findViewById(R.id.recyclerview);
+        array_list = new ArrayList<Card_DataModel>();
 
-        recyclerAdapter = new RecyclerAdapter(context);
-        recyclerView.setAdapter(recyclerAdapter);
+       array_statenames = new String[]{"Maharashtra", "Gujarat", "Karnataka"};
+
+
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
+
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yy");
@@ -60,6 +70,56 @@ public class MainActivity extends AppCompatActivity {
         statesDaily_listCall.enqueue(new Callback<StatesDaily_List>() {
             @Override
             public void onResponse(Call<StatesDaily_List> call, Response<StatesDaily_List> response) {
+
+
+                if(response.isSuccessful())
+                {
+
+                    StatesDaily statesDaily = new StatesDaily();
+                    statesDaily.setDate(today_date);
+                    statesDaily.setStatus("Confirmed");
+
+                    StatesDaily statesDaily_1 = new StatesDaily();
+                    statesDaily_1.setDate(today_date);
+                    statesDaily_1.setStatus("Recovered");
+
+                    StatesDaily statesDaily_2 = new StatesDaily();
+                    statesDaily_2.setDate(today_date);
+                    statesDaily_2.setStatus("Deceased");
+
+                    int[] index_array = new int[]
+                            {response.body().getStatesDaily().indexOf(statesDaily),
+                                    response.body().getStatesDaily().indexOf(statesDaily_1),
+                                    response.body().getStatesDaily().indexOf(statesDaily_2)
+                            };
+
+
+                    if(!Arrays.asList(index_array).contains(-1))
+                    {
+
+                       array_list.add(
+                               new Card_DataModel(array_statenames[0],
+                                       response.body().getStatesDaily().get(index_array[0]).getDate(),
+                                       response.body().getStatesDaily().get(index_array[0]).getMh(),
+                                       response.body().getStatesDaily().get(index_array[1]).getMh(),
+                                       response.body().getStatesDaily().get(index_array[2]).getMh()));
+
+                       array_list.add( new Card_DataModel(array_statenames[1],
+                               response.body().getStatesDaily().get(index_array[0]).getDate(),
+                               response.body().getStatesDaily().get(index_array[0]).getGj(),
+                               response.body().getStatesDaily().get(index_array[1]).getGj(),
+                               response.body().getStatesDaily().get(index_array[2]).getGj()));
+
+
+                        recyclerAdapter = new RecyclerAdapter(context, array_list);
+                        recyclerView.setAdapter(recyclerAdapter);
+                    }
+
+
+
+
+                }
+/*
                 if(response.isSuccessful())
                 {
                     StatesDaily st = new StatesDaily();
@@ -67,8 +127,6 @@ public class MainActivity extends AppCompatActivity {
                     st.setDate(yesterday_date);
                     st.setStatus("Confirmed");
 
-
-//                    Log.e("PRAJWAL","EQUALL: "+response.body().getStatesDaily().contains(st));
                     List<StatesDaily> listOfState = response.body().getStatesDaily();
                     int indexOfObj = listOfState.indexOf(st);
                     if(indexOfObj >= 0){
@@ -85,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
                     st_1.setStatus("Recovered");
 
 
-//                    Log.e("PRAJWAL","EQUALL: "+response.body().getStatesDaily().contains(st));
                     List<StatesDaily> listOfState_1 = response.body().getStatesDaily();
                     int indexOfObj_1 = listOfState_1.indexOf(st_1);
                     if(indexOfObj_1 >= 0){
@@ -98,28 +155,15 @@ public class MainActivity extends AppCompatActivity {
                     st_2.setDate(yesterday_date);
                     st_2.setStatus("Deceased");
 
-
-//                    Log.e("PRAJWAL","EQUALL: "+response.body().getStatesDaily().contains(st));
                     List<StatesDaily> listOfState_2 = response.body().getStatesDaily();
                     int indexOfObj_2 = listOfState_2.indexOf(st_2);
                     if(indexOfObj_2 >= 0){
                         StatesDaily actualObj_2 = listOfState_1.get(indexOfObj_2);
                         deceased.setText(actualObj_2.getMh() + "\n Death");
                     }
-/*
-                    for (int i = 0; i < response.body().getStatesDaily().size(); i++) {
-                        String date_string = response.body().getStatesDaily().get(i).getDate();
-//                        String confirm_string = response.body().getStatesDaily().get(i).;
-                        date.setText(date_string);
-                        confirmed.setText(response.body().getStatesDaily().get(i).getMh() + "\n Confirm");
-                        recovered.setText(response.body().getStatesDaily().get(i+1).getMh() + "\n Recover");
-                        deceased.setText(response.body().getStatesDaily().get(i+2).getMh() + "\n Death");
-                        state.setText("Maharashtra");
-                    }
-*/
-
 
                 }
+*/
             }
 
             @Override
@@ -127,5 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

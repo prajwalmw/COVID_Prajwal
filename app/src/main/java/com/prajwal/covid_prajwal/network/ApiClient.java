@@ -13,7 +13,7 @@ public class ApiClient {
     public static Retrofit getRetrofit()
     {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
         builder.addInterceptor(httpLoggingInterceptor);
 
         if(retrofit == null)
