@@ -141,9 +141,20 @@ int[] index_array;
                         StatesDaily statesDaily_new = new StatesDaily();
                         for (int i = 0; i < statesDaily_new.All_States_Length(); i++)
                         {
+                            int c_confirm = Integer.parseInt
+                                    (response.body().getStatesDaily().get(index_array[0]).All_States(i));
+
+                            int c_recover = Integer.parseInt
+                                    (response.body().getStatesDaily().get(index_array[1]).All_States(i));
+
+                            int c_death = Integer.parseInt
+                                    (response.body().getStatesDaily().get(index_array[2]).All_States(i));
+
+                            String total = "Total: " + String.valueOf(c_confirm + c_recover + c_death);
+
                             array_list.add(
                                     new Card_DataModel(array_statenames[i],
-                                            response.body().getStatesDaily().get(index_array[0]).getDate(),
+                                            total,
                                             response.body().getStatesDaily().get(index_array[0]).All_States(i),
                                             response.body().getStatesDaily().get(index_array[1]).All_States(i),
                                             response.body().getStatesDaily().get(index_array[2]).All_States(i)));
