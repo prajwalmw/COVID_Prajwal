@@ -35,25 +35,44 @@
                     android:hint="State name"
                     android:textStyle="bold"
                     android:lines="2"
-                    android:textColor="#8e0038"
                     android:ellipsize="marquee"
                     android:padding="10dp"
                     android:textSize="17sp"/>
 
-                <TextView
-                    android:id="@+id/DateName"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:hint="Total: ---"
-                    android:paddingEnd="20dp"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:layout_gravity="end|center_vertical"
                     android:gravity="end"
-                    android:lines="2"
-                    android:textColor="#8e0038"
-                    android:ellipsize="marquee"
-                    android:padding="10dp"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:paddingTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Total: "
+                        android:gravity="end"
+                        android:lines="2"
+                        android:ellipsize="marquee"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/DateName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:hint="595"
+                        android:lines="2"
+                        android:textColor="#8e0038"
+                        android:ellipsize="marquee"
+                        android:paddingHorizontal="10dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
             </LinearLayout>
 
             <LinearLayout
@@ -80,8 +99,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="-"
-                    android:textColor="@android:color/holo_red_dark"
                     android:textSize="24sp"
+                    android:textColor="#000000"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
@@ -92,7 +111,7 @@
                         android:text="Confirm"
                         android:lines="2"
                         android:ellipsize="marquee"
-                        android:textColor="#70cc0000"
+                        android:textColor="#70000000"
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:gravity="center"/>
@@ -143,7 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="-"
-                    android:textColor="#000000"
+                    android:textColor="@android:color/holo_red_dark"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
@@ -155,7 +174,7 @@
                     android:text="Death"
                     android:lines="2"
                     android:ellipsize="marquee"
-                    android:textColor="#70000000"
+                    android:textColor="#70cc0000"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     android:gravity="center"/>

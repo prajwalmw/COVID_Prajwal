@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                             int c_death = Integer.parseInt
                                     (response.body().getStatesDaily().get(index_array[2]).All_States(i));
 
-                            String total = "Total: " + String.valueOf(c_confirm + c_recover + c_death);
+                            String total = String.valueOf(c_confirm + c_recover + c_death);
 
                             array_list.add(
                                     new Card_DataModel(array_statenames[i],
