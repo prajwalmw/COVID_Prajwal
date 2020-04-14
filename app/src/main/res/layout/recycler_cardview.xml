@@ -11,7 +11,7 @@
         android:layout_margin="20dp"
         app:cardCornerRadius="10dp"
         app:cardPreventCornerOverlap="true"
-        android:elevation="10dp">
+        android:elevation="15dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -34,6 +34,8 @@
                     android:layout_height="wrap_content"
                     android:hint="State name"
                     android:textStyle="bold"
+                    android:lines="2"
+                    android:ellipsize="marquee"
                     android:padding="10dp"
                     android:textSize="17sp"/>
 
@@ -45,7 +47,8 @@
                     android:hint="00-Apr-20"
                     android:paddingEnd="20dp"
                     android:gravity="end"
-                    android:lines="1"
+                    android:lines="2"
+                    android:ellipsize="marquee"
                     android:padding="10dp"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -56,43 +59,106 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_below="@+id/linear_title"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:paddingBottom="5dp"
                 android:weightSum="3"
                 >
 
-                <TextView
-                    android:id="@+id/Confirmed"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:hint="confirm"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/Confirmed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="-"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="22sp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/Confirm_Status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Confirm"
+                        android:lines="2"
+                        android:ellipsize="marquee"
+                        android:textColor="#70cc0000"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginStart="11dp">
+                <TextView
+                    android:id="@+id/Recovered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="-"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
                 <TextView
-                    android:id="@+id/Recovered"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/Recovered_Status"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="recover"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="22sp"
+                    android:text="Recover"
+                    android:lines="2"
+                    android:ellipsize="marquee"
+                    android:textColor="#7099cc00"
+                    android:textSize="17sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/Deceased"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="death"
-                    android:textColor="#80000000"
-                    android:textSize="22sp"
+                    android:hint="-"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/Deceased_Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Death"
+                    android:lines="2"
+                    android:ellipsize="marquee"
+                    android:textColor="#70000000"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+
+            </LinearLayout>
 
 
             </LinearLayout>
