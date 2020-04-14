@@ -9,6 +9,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     ArrayList<Card_DataModel> array_list, recovered_array, deceased_array;
     String[] array_statenames;
+    String toolbar_date = "";
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         deceased = findViewById(R.id.Deceased);
         recyclerView = findViewById(R.id.recyclerview);
         array_list = new ArrayList<Card_DataModel>();
+
+
 
        array_statenames = new String[]
                {"Andaman & Nicobar Island", "Andhra Pradesh", "Arunachal Pradesh",
@@ -115,6 +122,8 @@ int[] index_array;
                                         response.body().getStatesDaily().indexOf(statesDaily_1),
                                         response.body().getStatesDaily().indexOf(statesDaily_2)
                                 };
+                        toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
+                        updateMenuTitles(toolbar_date);
                     }
                     else
                     {
@@ -135,6 +144,8 @@ int[] index_array;
                                         response.body().getStatesDaily().indexOf(statesDaily_b),
                                         response.body().getStatesDaily().indexOf(statesDaily_c)
                                 };
+                        toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
+                        updateMenuTitles(toolbar_date);
 
                     }
 
@@ -175,5 +186,51 @@ int[] index_array;
         });
 //comments added.
 
+    }
+
+  /*  @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.date_selected);
+        if(!TextUtils.isEmpty(toolbar_date))
+        {
+            item.setTitle(toolbar_date);
+        }
+
+
+        return super.onPrepareOptionsMenu(menu);
+    }*/
+
+       @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home, menu);
+        this.menu = menu;
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void updateMenuTitles(String toolbar_data) {
+        MenuItem bedMenuItem = menu.findItem(R.id.date_selected);
+        if(!TextUtils.isEmpty(toolbar_data))
+        {
+            bedMenuItem.setTitle(toolbar_data);
+        }
+        else
+        {
+            bedMenuItem.getTitle();
+        }
+
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+      /*  switch (item.getItemId()) {
+            case R.id.date_selected:
+                return true;
+
+            default:
+
+        }*/
+        return super.onOptionsItemSelected(item);
     }
 }
