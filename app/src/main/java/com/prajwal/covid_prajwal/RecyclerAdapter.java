@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 private Context mcontext;
 ArrayList<Card_DataModel> confirm_arraylist;
+CustomProgressDialog customProgressDialog;
 
     public RecyclerAdapter(Context context, ArrayList<Card_DataModel> confirmed_array) {
         this.mcontext = context;
