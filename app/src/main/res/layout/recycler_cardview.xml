@@ -122,7 +122,7 @@
                     android:text="Recover"
                     android:lines="2"
                     android:ellipsize="marquee"
-                    android:textColor="#7099cc00"
+                    android:textColor="#7599cc00"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
