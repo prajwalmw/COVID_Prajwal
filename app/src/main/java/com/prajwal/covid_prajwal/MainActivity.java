@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Home");
+        setTitle("AyurNivid");    //App-name
         context = MainActivity.this;
         state = findViewById(R.id.StateName);
         date = findViewById(R.id.DateName);
