@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                             };*/
 
                         int[] index_array;
-                        
+
                         if (response.body().getStatesDaily().indexOf(statesDaily) >= 0 ||
                                 response.body().getStatesDaily().indexOf(statesDaily_1) >= 0 ||
                                 response.body().getStatesDaily().indexOf(statesDaily_2) >= 0)
