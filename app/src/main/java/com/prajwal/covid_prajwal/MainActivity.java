@@ -150,9 +150,10 @@ public class MainActivity extends AppCompatActivity {
                             };*/
 
                         int[] index_array;
-                        if (!TextUtils.isEmpty(statesDaily.getTt()) || !TextUtils.isEmpty(statesDaily_1.getTt()) ||
-                                !TextUtils.isEmpty(statesDaily_2.getTt()))
-                        //checking for null string values.
+                        
+                        if (response.body().getStatesDaily().indexOf(statesDaily) >= 0 ||
+                                response.body().getStatesDaily().indexOf(statesDaily_1) >= 0 ||
+                                response.body().getStatesDaily().indexOf(statesDaily_2) >= 0)
                         {
                             index_array = new int[]
                                     {response.body().getStatesDaily().indexOf(statesDaily),
@@ -161,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
                                     };
                             toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
                             updateMenuTitles(toolbar_date);
-                        } else {
+                        }
+                        else {
                             StatesDaily statesDaily_a = new StatesDaily();
                             statesDaily_a.setDate(yesterday_date);
                             statesDaily_a.setStatus("Confirmed");
