@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_india"
+        android:icon="@mipmap/ic_launcher_india_new"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_india_round"
+        android:roundIcon="@mipmap/ic_launcher_india_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CustomProgressDialog"></activity>
