@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     String toolbar_date = "";
     Menu menu;
     CustomProgressDialog customProgressDialog;
+    String today_date;
 
 
     @Override
@@ -116,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yy");
-            final String today_date = simpleDateFormat.format(calendar.getTime());
+            today_date = simpleDateFormat.format(calendar.getTime());
 
             Calendar cal_yes = Calendar.getInstance();
             cal_yes.add(Calendar.DATE, -1);
@@ -252,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem bedMenuItem = menu.findItem(R.id.date_selected);
         if(!TextUtils.isEmpty(toolbar_data))
         {
-            bedMenuItem.setTitle(toolbar_data);
+            bedMenuItem.setTitle(today_date);   //current date.
         }
         else
         {
