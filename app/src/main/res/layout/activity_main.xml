@@ -15,7 +15,7 @@
         android:layout_marginEnd="2dp"
         android:layout_marginTop="5dp"
         android:layout_alignParentTop="true"
-        android:text="Note: The data displayed below represents each day record of the latest information gathered*"
+        android:text="Note: The records displayed below represents data collected on a daily basis*"
         android:textColor="#4F4F4F"
         android:alpha="0.5"
         android:textSize="12sp" />

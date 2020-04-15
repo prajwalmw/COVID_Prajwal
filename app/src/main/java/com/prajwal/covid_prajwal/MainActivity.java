@@ -221,7 +221,21 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<StatesDaily_List> call, Throwable t) {
-
+                    AlertDialog.Builder alerBuilder = new AlertDialog.Builder(context)
+                            .setTitle("Oops!")
+                            .setMessage("Something went wrong. Please try again later!")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    moveTaskToBack(true);
+                                    System.exit(1);   //non-zero states that the JVM has to be killed.
+                                }
+                            });
+                    AlertDialog alertDialog = alerBuilder.create();
+                    alertDialog.show();
+                    Button positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                    positiveButton.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
                 }
             });
 //comments added.
