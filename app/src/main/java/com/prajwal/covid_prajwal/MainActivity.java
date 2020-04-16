@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                                             response.body().getStatesDaily().indexOf(statesDaily_2)
                                     };
                             toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
-                            updateMenuTitles(toolbar_date);
+//                            updateMenuTitles(toolbar_date);
                         }
                         else {
                             StatesDaily statesDaily_a = new StatesDaily();
@@ -183,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                                             response.body().getStatesDaily().indexOf(statesDaily_c)
                                     };
                             toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
-                            updateMenuTitles(toolbar_date);
+//                            updateMenuTitles(toolbar_date);
 
                         }
 
@@ -255,15 +256,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }*/
 
-       @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_home, menu);
-        this.menu = menu;
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    private void updateMenuTitles(String toolbar_data) {
+
+/*    private void updateMenuTitles(String toolbar_data) {
         MenuItem bedMenuItem = menu.findItem(R.id.date_selected);
         if(!TextUtils.isEmpty(toolbar_data))
         {
@@ -275,17 +270,27 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home, menu);
+        this.menu = menu;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-      /*  switch (item.getItemId()) {
-            case R.id.date_selected:
+        switch (item.getItemId()) {
+            case R.id.info:
+                Intent new_screen = new Intent(MainActivity.this, Information.class);
+                startActivity(new_screen);
                 return true;
 
             default:
+                return super.onOptionsItemSelected(item);
+        }
 
-        }*/
-        return super.onOptionsItemSelected(item);
     }
 }

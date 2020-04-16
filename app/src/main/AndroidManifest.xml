@@ -3,7 +3,7 @@
     package="com.prajwal.covid_prajwal">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_india_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomProgressDialog"></activity>
+        <activity android:name=".Information"></activity>
+        <activity android:name=".CustomProgressDialog" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

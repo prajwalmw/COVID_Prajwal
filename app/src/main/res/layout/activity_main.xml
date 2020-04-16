@@ -14,9 +14,9 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="2dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentTop="true"
-        android:text="Note: The records displayed below represents data collected on a daily basis*"
+        android:text="Note: The records displayed below represents data collected on per day basis and it represents new cases encountered only within 24-Hours*"
         android:textColor="#4F4F4F"
         android:alpha="0.5"
         android:textSize="12sp" />
