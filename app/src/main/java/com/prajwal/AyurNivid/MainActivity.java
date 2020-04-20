@@ -1,40 +1,28 @@
-package com.prajwal.covid_prajwal;
+package com.prajwal.AyurNivid;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.arch.core.util.Function;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.prajwal.covid_prajwal.network.ApiClient;
-import com.prajwal.covid_prajwal.network.ApiInterface;
-import com.prajwal.covid_prajwal.network.NetworkConnection;
-import com.prajwal.covid_prajwal.pojo_model.StatesDaily;
-import com.prajwal.covid_prajwal.pojo_model.StatesDaily_List;
+import com.prajwal.AyurNivid.network.ApiClient;
+import com.prajwal.AyurNivid.network.ApiInterface;
+import com.prajwal.AyurNivid.network.NetworkConnection;
+import com.prajwal.AyurNivid.pojo_model.StatesDaily;
+import com.prajwal.AyurNivid.pojo_model.StatesDaily_List;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

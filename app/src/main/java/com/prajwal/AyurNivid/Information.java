@@ -1,4 +1,4 @@
-package com.prajwal.covid_prajwal;
+package com.prajwal.AyurNivid;
 
 import androidx.appcompat.app.AppCompatActivity;
 

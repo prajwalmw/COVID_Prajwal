@@ -1,4 +1,4 @@
-package com.prajwal.covid_prajwal;
+package com.prajwal.AyurNivid;
 
 public class Card_DataModel {
     private String state, date, confirm, recover, death;

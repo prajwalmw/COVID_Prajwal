@@ -1,11 +1,8 @@
-package com.prajwal.covid_prajwal;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.prajwal.AyurNivid;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
-import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;

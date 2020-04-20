@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.prajwal.covid_prajwal">
+    package="com.prajwal.AyurNivid">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_india_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Information"></activity>
-        <activity android:name=".CustomProgressDialog" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.prajwal.AyurNivid.Information"></activity>
+        <activity android:name="com.prajwal.AyurNivid.CustomProgressDialog" />
+        <activity android:name="com.prajwal.AyurNivid.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
