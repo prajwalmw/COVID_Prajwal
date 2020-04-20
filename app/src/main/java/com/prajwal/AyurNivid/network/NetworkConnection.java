@@ -1,4 +1,4 @@
-package com.prajwal.covid_prajwal.network;
+package com.prajwal.AyurNivid.network;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

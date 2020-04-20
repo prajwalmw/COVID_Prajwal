@@ -1,4 +1,4 @@
-package com.prajwal.covid_prajwal.network;
+package com.prajwal.AyurNivid.network;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

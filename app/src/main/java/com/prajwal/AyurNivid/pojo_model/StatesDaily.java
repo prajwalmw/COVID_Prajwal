@@ -1,12 +1,9 @@
-package com.prajwal.covid_prajwal.pojo_model;
+package com.prajwal.AyurNivid.pojo_model;
 
 import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 public class StatesDaily {
 

@@ -1,6 +1,6 @@
-package com.prajwal.covid_prajwal.network;
+package com.prajwal.AyurNivid.network;
 
-import com.prajwal.covid_prajwal.pojo_model.StatesDaily_List;
+import com.prajwal.AyurNivid.pojo_model.StatesDaily_List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

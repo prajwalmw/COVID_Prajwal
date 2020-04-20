@@ -1,6 +1,4 @@
-package com.prajwal.covid_prajwal.pojo_model;
-
-import androidx.annotation.Nullable;
+package com.prajwal.AyurNivid.pojo_model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
