@@ -116,13 +116,17 @@ public class MainActivity extends AppCompatActivity {
                     new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
 
 
-            Calendar calendar = Calendar.getInstance();
+            Calendar calendar = Calendar.getInstance();     //today's date.
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yy");
             today_date = simpleDateFormat.format(calendar.getTime());
 
             Calendar cal_yes = Calendar.getInstance();
-            cal_yes.add(Calendar.DATE, -1);
+            cal_yes.add(Calendar.DATE, -1);     //yesterday's date.
             final String yesterday_date = simpleDateFormat.format(cal_yes.getTime());
+
+            Calendar cal_otherDate = Calendar.getInstance();
+            cal_otherDate.add(Calendar.DATE, -2);     //day after yesterday's date.
+            final String other_date = simpleDateFormat.format(cal_otherDate.getTime());
 
             apiInterface = ApiClient.getRetrofit().create(ApiInterface.class);
             Call<StatesDaily_List> statesDaily_listCall = apiInterface.STATES_DAILY_LIST_CALL();
@@ -151,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                                     response.body().getStatesDaily().indexOf(statesDaily_2)
                             };*/
 
-                        int[] index_array;
+                        int[] index_array = new int[]{};
 
                         if (response.body().getStatesDaily().indexOf(statesDaily) >= 0 ||
                                 response.body().getStatesDaily().indexOf(statesDaily_1) >= 0 ||
@@ -178,13 +182,46 @@ public class MainActivity extends AppCompatActivity {
                             statesDaily_c.setDate(yesterday_date);
                             statesDaily_c.setStatus("Deceased");
 
-                            index_array = new int[]
-                                    {response.body().getStatesDaily().indexOf(statesDaily_a),
-                                            response.body().getStatesDaily().indexOf(statesDaily_b),
-                                            response.body().getStatesDaily().indexOf(statesDaily_c)
-                                    };
-                            toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
+                            if(response.body().getStatesDaily().indexOf(statesDaily_a) >= 0 ||
+                                    response.body().getStatesDaily().indexOf(statesDaily_b) >= 0 ||
+                                    response.body().getStatesDaily().indexOf(statesDaily_c) >= 0)
+                            {
+                                index_array = new int[]
+                                        {response.body().getStatesDaily().indexOf(statesDaily_a),
+                                                response.body().getStatesDaily().indexOf(statesDaily_b),
+                                                response.body().getStatesDaily().indexOf(statesDaily_c)
+                                        };
+                                toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
 //                            updateMenuTitles(toolbar_date);
+                            }
+                            else {
+                                StatesDaily statesDaily_a1 = new StatesDaily();
+                                statesDaily_a1.setDate(other_date);
+                                statesDaily_a1.setStatus("Confirmed");
+
+                                StatesDaily statesDaily_b1 = new StatesDaily();
+                                statesDaily_b1.setDate(other_date);
+                                statesDaily_b1.setStatus("Recovered");
+
+                                StatesDaily statesDaily_c1 = new StatesDaily();
+                                statesDaily_c1.setDate(other_date);
+                                statesDaily_c1.setStatus("Deceased");
+
+                                if (response.body().getStatesDaily().indexOf(statesDaily_a1) >= 0 ||
+                                        response.body().getStatesDaily().indexOf(statesDaily_b1) >= 0 ||
+                                        response.body().getStatesDaily().indexOf(statesDaily_c1) >= 0)
+                                {
+                                    index_array = new int[]
+                                            {response.body().getStatesDaily().indexOf(statesDaily_a1),
+                                                    response.body().getStatesDaily().indexOf(statesDaily_b1),
+                                                    response.body().getStatesDaily().indexOf(statesDaily_c1)
+                                            };
+                                    toolbar_date = response.body().getStatesDaily().get(index_array[0]).getDate();
+//                            updateMenuTitles(toolbar_date);
+                                }
+
+                            }
+
 
                         }
 
@@ -214,6 +251,23 @@ public class MainActivity extends AppCompatActivity {
                         recyclerView.setAdapter(recyclerAdapter);
                         if (recyclerAdapter.getItemCount() != 0) {
                             customProgressDialog.dismiss();
+                        }
+                        else{
+                            AlertDialog.Builder alerBuilder = new AlertDialog.Builder(context)
+                                    .setTitle("Oops!")
+                                    .setMessage("Something went wrong. Please try again later!")
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            moveTaskToBack(true);
+                                            System.exit(1);   //non-zero states that the JVM has to be killed.
+                                        }
+                                    });
+                            AlertDialog alertDialog = alerBuilder.create();
+                            alertDialog.show();
+                            Button positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                            positiveButton.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
                         }
 
                     }
@@ -272,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
 
     }*/
 
-    @Override
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_home, menu);
@@ -292,5 +346,5 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-    }
+    }*/
 }
