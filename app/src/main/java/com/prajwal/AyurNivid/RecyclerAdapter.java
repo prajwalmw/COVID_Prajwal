@@ -32,7 +32,7 @@ CustomProgressDialog customProgressDialog;
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.state.setText(confirm_arraylist.get(position).getState());
-        holder.date.setText(confirm_arraylist.get(position).getDate());
+        holder.total.setText(confirm_arraylist.get(position).getTotal());
         holder.confirmed.setText(confirm_arraylist.get(position).getConfirm());
         holder.recovered.setText(confirm_arraylist.get(position).getRecover());
         holder.deceased.setText(confirm_arraylist.get(position).getDeath());
@@ -46,13 +46,13 @@ CustomProgressDialog customProgressDialog;
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
-        TextView state, date, confirmed, recovered, deceased;
+        TextView state, total, confirmed, recovered, deceased;
 
         public MyViewHolder(@NonNull View itemView/*, Context context*/) {
             super(itemView);
             this.cardView = itemView.findViewById(R.id.recycle_card);
             this.state = itemView.findViewById(R.id.StateName);
-            this.date = itemView.findViewById(R.id.DateName);
+            this.total = itemView.findViewById(R.id.DateName);
             this.confirmed = itemView.findViewById(R.id.Confirmed);
             this.recovered = itemView.findViewById(R.id.Recovered);
             this.deceased = itemView.findViewById(R.id.Deceased);

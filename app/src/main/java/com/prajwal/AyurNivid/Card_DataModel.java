@@ -1,15 +1,27 @@
 package com.prajwal.AyurNivid;
 
-public class Card_DataModel {
-    private String state, date, confirm, recover, death;
+public class Card_DataModel implements Comparable{
+    private String state;
+    private String  total;
+    private String confirm;
+    private String recover;
+    private String death;
 
 
-    public Card_DataModel(String state, String date, String confirm, String recover, String death) {
+    public Card_DataModel(String state, String total, String confirm, String recover, String death) {
         this.state = state;
-        this.date = date;
+        this.total = total;
         this.confirm = confirm;
         this.recover = recover;
         this.death = death;
+    }
+
+    public String  getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
     }
 
 
@@ -21,13 +33,6 @@ public class Card_DataModel {
         this.state = state;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 
     public String getConfirm() {
         return confirm;
@@ -51,5 +56,12 @@ public class Card_DataModel {
 
     public void setDeath(String death) {
         this.death = death;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        String compareToString = ((Card_DataModel) o).getTotal();
+        int compareTo = Integer.parseInt(compareToString);
+        return compareTo - Integer.parseInt(this.total); //Descending order...
     }
 }

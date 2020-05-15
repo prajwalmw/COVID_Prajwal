@@ -23,6 +23,7 @@ import com.prajwal.AyurNivid.pojo_model.StatesDaily_List;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -121,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
             statesDaily_listCall.enqueue(new Callback<StatesDaily_List>() {
                 @Override
                 public void onResponse(Call<StatesDaily_List> call, Response<StatesDaily_List> response) {
-
 
                     if (response.isSuccessful()) {
 
@@ -233,7 +233,10 @@ public class MainActivity extends AppCompatActivity {
                                             response.body().getStatesDaily().get(index_array[0]).All_States(i),
                                             response.body().getStatesDaily().get(index_array[1]).All_States(i),
                                             response.body().getStatesDaily().get(index_array[2]).All_States(i)));
+
                         }
+
+                        Collections.sort(array_list);
 
                         recyclerAdapter = new RecyclerAdapter(context, array_list);
                         recyclerView.setAdapter(recyclerAdapter);
